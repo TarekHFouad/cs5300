@@ -4,6 +4,7 @@ from task2 import varTypes
 from task3 import *
 from task4 import *
 from task5 import *
+from task6 import *
 import io
 import sys
 
@@ -47,3 +48,25 @@ def test_task5():
     ]
 
     assert favBooks() == print(expected_books)
+
+    student_dict = studentDatabase()
+
+    assert "Bob" in student_dict
+    assert student_dict["Bob"] == 1
+    assert student_dict["Tarek"] == 2
+
+
+#task 6
+testfiles = ["task6_read_me.txt" , "task6_read_me2%6.txt"
+]
+@pytest.mark.parametrize("filename", testfiles)
+def testWordCountDynamic(filename):
+    try:
+        tempString = filename.split("%")
+        
+        print(tempString)
+        if tempString[0] != None:
+            tempString = tempString[1].split(".")
+            print(f"{wordCount(filename)} == {tempString}")
+    except:
+        assert wordCount(filename) > 0

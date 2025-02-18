@@ -7,5 +7,12 @@ def favBooks():
 
     print(bookList[:3])
 
-def studentDatabase
+def studentDatabase():
+    student_dict = {
+    "Bob": 1,
+    "Tarek": 2,
+    "max": 3
+         }
+
+    return student_dict
 
