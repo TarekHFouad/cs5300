@@ -1,6 +1,7 @@
+# This program checks the word count of a file, It also is dynamic and can work with multiple files
 import pytest
 
-testfiles = ["task6_read_me.txt", "task6_read_me2%5.txt"
+testfiles = ["task6_read_me.txt", "task6_read_me2%6.txt"
 ]
 
 def wordCount(filename):
@@ -20,5 +21,3 @@ def testWordCountDynamic(filename):
             print(f"{wordCount(filename)} == {tempString}")
     except:
         assert wordCount(filename) > 0
-
-#testWordCountDynamic(filename) 
