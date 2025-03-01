@@ -1,0 +1,22 @@
+<!-- bookings/templates/bookings/seat_booking.html -->
+{% extends 'bookings/base.html' %}
+
+{% block title %}Book Seat for {{ movie.title }}{% endblock %}
+
+{% block content %}
+<h2>Book Seat for: {{ movie.title }}</h2>
+{% if seats %}
+    <p>Select an available seat:</p>
+    <form method="post">
+        {% csrf_token %}
+        <select name="seat" class="form-select mb-3">
+            {% for seat in seats %}
+            <option value="{{ seat.id }}">{{ seat.seat_number }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-success">Confirm Booking</button>
+    </form>
+{% else %}
+    <p>No seats available!</p>
+{% endif %}
+{% endblock %}
