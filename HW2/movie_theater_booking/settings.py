@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+FORCE_SCRIPT_NAME = '/proxy/3000'
+USE_X_FORWARDED_HOST = True
+
+
+
 
 # Application definition
 

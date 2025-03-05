@@ -25,13 +25,13 @@ def movie_list(request):
     movies = Movie.objects.all()
     return render(request, 'bookings/movie_list.html', {'movies': movies})
 
+@login_required
 def seat_booking(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
     seats = Seat.objects.filter(is_booked=False)
     if request.method == 'POST':
         if seats.exists():
             seat = seats.first()
-            # In a real app, ensure that request.user is authenticated
             booking = Booking.objects.create(movie=movie, seat=seat, user=request.user)
             seat.is_booked = True
             seat.save()
